@@ -1,0 +1,18 @@
+Tutorial
+This tutorial will show you step-by-step instructions on getting your infrastructure in place using one hub, and one Chrome node connecting to the hub.
+
+Download the OpenShift Templates by cloning, or downloading directly (https://github.com/ddavison/selenium-openshift-templates/archive/master.zip).
+Login to your OpenShift instance using the oc CLI.
+Create the Selenium Hub template by using oc create -f selenium-hub.yaml
+Create the Selenium Node Chrome template by using oc create -f selenium-node-chrome.yaml
+From the OpenShift WebApp, switch to your desired project, and click "Add to Project"
+Search for "selenium" and add the "selenium-hub" template to the project.
+Click Create
+Click "Add to Project"
+Search for "selenium" and add the "selenium-node-chrome" template to the project.
+Upon configuration of the Selenium Node, change the HUBPORT4444TCPADDR and HUBPORT4444TCPPORT to the route defined here (https://github.com/ddavison/selenium-openshift-templates/blob/master/selenium-hub.yaml#L66).
+Click Create
+You now have a scalable infrastructure with one hub, and any amount of nodes ready to run tests in the Chrome browser. Add to this as necessary. You may also oc create -f selenium-node-chrome.yaml and follow steps 8-11 in the context of "firefox" instead of chrome.
+
+Links
+GitHub: https://github.com/ddavison/selenium-openshift-templates
